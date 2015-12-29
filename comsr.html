@@ -1,0 +1,75 @@
+<head>
+  <title>comsr</title>
+</head>
+
+<body>
+  	<div class="header">	
+  	<h1>Commuter Speed Run</h1>
+  	</div>
+  
+  	<h2>
+  	<form class="newmethod">
+  		Add travel method <input type="text" name="travmeth"><br>
+  	</form>
+  	</h2>
+  	<div id="header">
+  	<ul class="datalist" style="width:90%; float:left;">
+  		{{#each travellists}}
+  			{{> travellist}}  
+  		{{/each}}	
+  		{{addtimers}}
+  	</ul>
+  	
+  	<ul class ="timeslot" style="width:10%; float:left;">
+  		{{#each travellists}}
+  			{{> accomplist}}
+  		{{/each}}
+  	</ul>
+  	
+  	</div>
+  	
+  	<div class="startrun">
+		<button class="startbtn">Start Run</button>
+	</div>
+	<div class="stoprun">
+		<button class="stopbtn">Stop Run</button>
+	</div>
+	<div class="advance">
+		<button class="testbtn"> Advance</button>
+	</div>
+	
+	<div id="editlist">
+		<button class="editlist"> Edit List </button>
+	</div>
+
+  	{{> timer}}
+  	<p> Stored time: {{timestore}}</p>
+  
+	</body>
+
+
+
+<template name="timer">
+    <div class="timer">{{time}}</div>
+</template>
+
+
+
+<template name="travellist">
+	
+	<li style="list-style-type: none; id = post">
+        <button class="delete">&times;</button>
+        {{text}}
+    </li>  
+    
+</template>
+	
+<template name="accomplist">
+	<li style="list-style-type: none; id = notpost">
+		Should change
+	</li>
+</template>
+
+<template name="addtimers">
+	{{timers}}
+</template>
